@@ -17,6 +17,38 @@ export default new Router({
       }
     },
     {
+      path: '/home',
+      name: 'home',
+      components: {
+        default: () => import('./views/Home'),
+        footer
+      }
+    },
+    {
+      path: '/kind',
+      name: 'kind',
+      components: {
+        default: () => import('./views/Kind'),
+        footer
+      }
+    },
+    {
+      path: '/cart',
+      name: 'cart',
+      components: {
+        default: () => import('./views/Cart'),
+        footer
+      }
+    },
+    {
+      path: '/user',
+      name: 'user',
+      components: {
+        default: () => import('./views/User'),
+        footer
+      }
+    },
+    {
       path: '*', component: () => import('./views/Error')
     }
   ]

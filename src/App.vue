@@ -14,6 +14,7 @@ html, body, #app, .box {
 #app, .box {
   @include flexbox();
   @include flex-direction(column);
+  @include background-color(#f4f4f4);
   .container {
     @include flex();
     @include rect(100%, auto);

@@ -45,7 +45,6 @@ export default {
       axios.get('/data/checked.json').then(
         res => {
           context.commit('changeChecked', res.data.data)
-          console.log(res.data.data)
         }
       )
     }

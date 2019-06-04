@@ -22,10 +22,7 @@
 <script>
 export default {
   name: 'Prolist',
-  props: ['prolist'],
-  mounted () {
-    console.log('aa', this.prolist)
-  }
+  props: ['prolist']
 }
 </script>
 

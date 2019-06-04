@@ -10,7 +10,6 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
       components: {
         default: () => import('./views/Home.vue'),
         footer

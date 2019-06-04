@@ -2,7 +2,15 @@
     <div class="announcement">
       <img src="@/assets/images/108_P_1536792828502.png" alt="">
       <div class="connew con2">
-        <div>aaaaaaaa</div>
+        <cube-scroll
+          ref="scroll"
+          :options="options"
+          :data="items"
+          class="horizontal-scroll-list-wrap">
+          <ul class="list-wrapper">
+            <li v-for="(item, index) in items" :key="index" class="list-item">{{ item }}</li>
+          </ul>
+        </cube-scroll>
       </div>
       <router-link to="/" class="more-link">more</router-link>
     </div>
@@ -10,7 +18,46 @@
 
 <script>
 export default {
-  name: 'announcement'
+  name: 'announcement',
+  data () {
+    return {
+      items: [
+        '😀 😁 😂 🤣 😃 🙃 ',
+        '👈🏻  scroll 👉🏻 ',
+        '🙂 🤔 😄 🤨 😐 🙃 ',
+        '👈🏻  scroll 👉🏻 ',
+        '😔 😕 🙃 🤑 😲 ☹️ ',
+        '👈🏻  scroll 👉🏻 ',
+        '🐣 🐣 🐣 🐣 🐣 🐣 ',
+        '👈🏻  scroll 👉🏻 ',
+        '🐥 🐥 🐥 🐥 🐥 🐥 ',
+        '👈🏻  scroll 👉🏻 ',
+        '🤓 🤓 🤓 🤓 🤓 🤓 ',
+        '👈🏻  scroll 👉🏻 ',
+        '🦔 🦔 🦔 🦔 🦔 🦔 ',
+        '👈🏻  scroll 👉🏻 ',
+        '🙈 🙈 🙈 🙈 🙈 🙈 ',
+        '👈🏻  scroll 👉🏻 ',
+        '🚖 🚖 🚖 🚖 🚖 🚖 ',
+        '👈🏻  scroll 👉🏻 ',
+        '✌🏻 ✌🏻 ✌🏻 ✌🏻 ✌🏻 ✌🏻 '
+      ],
+      newY: -200
+    }
+  },
+  mounted () {
+  },
+  methods: {
+    //
+  },
+  computed: {
+    options () {
+      return {
+        // scrollbar: this.scrollbarObj,
+        startY: this.newY
+      }
+    }
+  }
 }
 </script>
 
@@ -53,4 +100,23 @@ export default {
       transition: color .2s ease;
     }
   }
+  // new
+.horizontal-scroll-list-wrap{
+  /*border: 1px solid rgba(0, 0, 0, 0.1);*/
+  border-radius: .05rem;
+  .cube-scroll-content{
+    display: inline-block;
+  }
+  .cube-scroll-list-wrapper{
+    .list-wrapper{
+      padding: 0 .1rem;
+      line-height: .4rem;
+      white-space: nowrap;
+    }
+    .list-item{
+      //
+    }
+  }
+}
+
 </style>

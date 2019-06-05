@@ -1,6 +1,11 @@
 <template>
   <div id="app">
-    <router-view/>
+    <transition
+      enter-active-class="animated rotateInDownLeft"
+      leave-active-class="animated rotateOutDownLeft"
+    >
+      <router-view/>
+    </transition>
     <router-view name="footer" />
   </div>
 </template>
@@ -10,7 +15,6 @@
 html, body, #app, .box {
   @include rect(100%, 100%);
 }
-
 #app, .box {
   @include flexbox();
   @include flex-direction(column);
@@ -55,5 +59,11 @@ html, body, #app, .box {
       }
     }
   }
+}
+.dd-enter-active{
+  -webkit-animation-name: bounce;
+  animation-name: bounce;
+  -webkit-transform-origin: center bottom;
+  transform-origin: center bottom;
 }
 </style>

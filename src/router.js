@@ -45,6 +45,44 @@ export default new Router({
       components: {
         default: () => import('./views/User'),
         footer
+      },
+      children: [
+        {
+          path: 'login',
+          component: () => import('./views/user/Login')
+        },
+        {
+          path: 'nologin',
+          component: () => import('./views/user/NoLogin')
+        }
+      ]
+    },
+    {
+      path: '/login',
+      name: 'login',
+      components: {
+        default: () => import('./views/Login')
+      }
+    },
+    {
+      path: '/register',
+      name: 'register',
+      components: {
+        default: () => import('./views/Register')
+      }
+    },
+    {
+      path: '/loginMobile',
+      name: 'loginMobile',
+      components: {
+        default: () => import('./views/LoginMobile')
+      }
+    },
+    {
+      path: '/forget',
+      name: 'forget',
+      components: {
+        default: () => import('./views/Forget')
       }
     },
     {

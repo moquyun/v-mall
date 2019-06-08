@@ -1,8 +1,7 @@
 <template>
   <div id="app">
     <transition
-      enter-active-class="animated rotateInDownLeft"
-      leave-active-class="animated rotateOutDownLeft"
+      enter-active-class="animated fast flipInY"
     >
       <router-view/>
     </transition>
@@ -24,10 +23,10 @@ html, body, #app, .box {
     @include rect(100%, auto);
     @include flexbox();
     @include flex-direction(column);
-    .header {
+    /*.header {
       @include rect(100%, 0.44rem);
       @include background-color(#f66);
-    }
+    }*/
     .content {
       @include flex();
       @include rect(100%, auto);
@@ -59,11 +58,5 @@ html, body, #app, .box {
       }
     }
   }
-}
-.dd-enter-active{
-  -webkit-animation-name: bounce;
-  animation-name: bounce;
-  -webkit-transform-origin: center bottom;
-  transform-origin: center bottom;
 }
 </style>

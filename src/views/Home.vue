@@ -6,7 +6,7 @@
       :options="options"
       @scroll="onScrollHandle"
       @pulling-down="onPullingDown">
-      <div ref="topHeader" class="header">aaa</div>
+      <div ref="topHeader" class="header"></div>
       <cube-slide :data="banner"/>
       <home-list :navlist="navList" />
       <announcement/>
@@ -117,7 +117,15 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style scoped lang="scss">
+  @import '@/lib/reset.scss';
+  .header {
+    @include rect(100%, 0.44rem);
+    @include background-color(rgba(255,255,255,.9));
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.14);
+    position:fixed;
+    z-index: 10;
+  }
   .cube-slide{
     height:2rem;//banner-height
     img{

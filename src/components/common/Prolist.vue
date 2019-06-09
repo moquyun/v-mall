@@ -2,7 +2,7 @@
   <section class="prolist">
     <ul class="product-list">
       <li v-for="(item, index) of prolist" :key="index">
-        <router-link to="item.goods_id"></router-link>
+        <router-link :to="item.goods_img"></router-link>
         <figure>
           <div class="img-box">
             <img :src="item.goods_img" alt="">

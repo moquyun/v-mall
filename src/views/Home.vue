@@ -6,7 +6,14 @@
       :options="options"
       @scroll="onScrollHandle"
       @pulling-down="onPullingDown">
-      <div ref="topHeader" class="header"></div>
+      <div ref="topHeader" class="header">
+        <div class="search-box">
+          <input type="text" class="search-text" placeholder="请输入搜索内容..." />
+          <router-link to="/search" class="search-btn">
+            <i class="cubeic-search"></i>
+          </router-link>
+        </div>
+      </div>
       <cube-slide :data="banner"/>
       <home-list :navlist="navList" />
       <announcement/>
@@ -125,6 +132,42 @@ export default {
     box-shadow: 0 1px 4px 0 rgba(0,0,0,0.14);
     position:fixed;
     z-index: 10;
+    .search-box{
+      position: absolute;
+      top:50%;
+      left: .2rem;
+      transform: translate(0,-50%);
+      background: #2f3640;
+      height: .4rem;
+      border-radius: .4rem;
+     /* padding:.1rem;
+      &:hover .search-text{
+        width: 2.4rem;
+      }*/
+      .search-btn{
+        color: #e84118;
+        height:.4rem;
+        width:.4rem;
+        border-radius: 50%;
+        background: #2f3640;
+        display: flex;
+        float:right;
+        justify-content: center;
+        align-items: center;
+        i{}
+      }
+      .search-text{
+        border: none;
+        background: none;
+        outline: none;
+        float: left;
+        color: white;
+        font-size: .16rem;
+        transition: .4s;
+        line-height: .4rem;
+        width: 2.6rem;
+      }
+    }
   }
   .cube-slide{
     height:2rem;//banner-height

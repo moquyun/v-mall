@@ -86,6 +86,13 @@ export default new Router({
       }
     },
     {
+      path: '/test',
+      name: 'test',
+      components: {
+        default: () => import('./views/Test')
+      }
+    },
+    {
       path: '*', component: () => import('./views/Error')
     }
   ]

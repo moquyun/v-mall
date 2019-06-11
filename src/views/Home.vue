@@ -33,6 +33,13 @@
         </div>
       </template>
     </cube-scroll>
+    <transition name="surprise-page">
+      <div v-if="triggerSurprise"
+           @click="surpriseHandle"
+           class="surprise-page">
+        <img src="https://dpubstatic.udache.com/static/dpubimg/42DhMSHmIY/ad_fullpage2.jpg">
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -121,6 +128,7 @@ export default {
   mounted () {
     this.getBanner()
     this.getChecked()
+    console.log(this.GLOBAL.httpUrl)
   }
 }
 </script>
@@ -215,5 +223,24 @@ export default {
         }
       }
     }
+  }
+  .surprise-page{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 33;
+    line-height: 0;
+    img{
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .surprise-page-enter, .surprise-page-leave-to{
+    transform: translateY(-100%);
+  }
+  .surprise-page-enter-active, .surprise-page-leave-active{
+    transition: transform .2s;
   }
 </style>

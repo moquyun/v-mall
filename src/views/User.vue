@@ -6,12 +6,26 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
 export default {
   name: 'User',
   data () {
     return {
-      isLogin: ''
+      // isLogin: 'ok'
     }
+  },
+  computed: {
+    ...mapState({
+      isLogin: ({ user }) => user.isLogin
+    })
+  },
+  methods: {
+    ...mapActions({
+      getLocalStorageIsLogin: 'getLocalStorageIsLogin'
+    })
+  },
+  mounted () {
+    this.getLocalStorageIsLogin()
   },
   beforeRouteEnter (to, from, next) {
     next(vm => {

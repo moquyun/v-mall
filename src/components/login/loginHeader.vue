@@ -20,7 +20,9 @@ export default {
   position:relative;
   margin-top:.1rem;
   i{
-    color:#dbdbdb;
+    /*color:#dbdbdb;*/
+    font-size: .2rem;
+    color: #848383;
   }
   h3{
     font-size: .4rem;

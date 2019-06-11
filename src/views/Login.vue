@@ -17,7 +17,7 @@
           ></cube-input>
           <router-link to="/register" class="new-register acolor">新用户注册</router-link>
           <router-link to="/forget" class="last-password acolor">忘记密码</router-link>
-          <cube-button :primary="true">登录</cube-button>
+          <cube-button @click="submitLogin" :primary="true">登录</cube-button>
         </div>
         <div class="user-bottom">
           <router-link to="/loginMobile">
@@ -33,13 +33,14 @@
 <script>
 import loginHeader from '@/components/login/loginHeader'
 import loginMixin from '@/mixin/login'
+import axios from 'axios'
 export default {
   name: 'Login',
   mixins: [loginMixin],
   data () {
     return {
-      username: '',
-      password: '',
+      username: '13122145678',
+      password: '12345678',
       type: 'password',
       maxlength: 100,
       autocomplete: true,
@@ -51,6 +52,47 @@ export default {
   },
   components: {
     loginHeader
+  },
+  methods: {
+    submitLogin () {
+      axios.post(`http://www.daxunxun.com/users/login`, {
+        username: this.username,
+        password: this.password
+      }).then(
+        res => {
+          console.log(res.data)
+          if (res.data === 0) {
+            this.$createToast({
+              type: 'error',
+              txt: '登录失败',
+              time: 1000
+            }).show()
+          } else if (res.data === 1) {
+            // success
+            this.$createToast({
+              type: 'correct',
+              txt: '登录成功',
+              time: 1000
+            }).show()
+            this.$store.commit('changeIsLogin', 'ok')
+            localStorage.setItem('isLogin', 'ok')
+            this.$router.push('/user')
+          } else if (res.data === 2) {
+            this.$createToast({
+              type: 'error',
+              txt: '账号不存在',
+              time: 1000
+            }).show()
+          } else if (res.data === -1) {
+            this.$createToast({
+              type: 'error',
+              txt: '密码错误',
+              time: 1000
+            }).show()
+          }
+        }
+      )
+    }
   }
 }
 </script>
